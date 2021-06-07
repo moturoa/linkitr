@@ -42,7 +42,7 @@ LinkitIZMNotifier <- R6::R6Class(inherit = LinkItEngine,
     remove_notificatie = function(id){
       
       ids <- private$to_sql_string(id)
-      DBIdbExecute(self$con, glue("update {self$schema}.notificaties set",
+      DBI::dbExecute(self$con, glue("update {self$schema}.notificaties set",
                                " removed = 1 where id in {ids}"))
       
     },
@@ -52,6 +52,20 @@ LinkitIZMNotifier <- R6::R6Class(inherit = LinkItEngine,
       
       linkit_bsns <- self$get_personen_active_dossiers(method = "all")
       pseudo_bsn %in% linkit_bsns
+    },
+    
+    person_has_recent_notificatie = function(pseudo_bsn, recent_days = 30){
+      
+      recent <- Sys.Date() - recent_days
+      
+      person_msg <- self$read_table("notificaties", lazy = TRUE) %>%
+        filter(pseudo_bsn == !!pseudo_bsn) %>%
+        collect %>%
+        mutate(date = as.Date(ymd_hms(timestamp))) %>%
+        filter(date >= recent)
+      
+      nrow(person_msg > 0)
+      
     },
 
     append_notificatie = function(pseudo_bsn, userid){

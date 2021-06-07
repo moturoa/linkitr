@@ -17,6 +17,9 @@ Implementation of a notification system between IZM and LinkIt
 \item \href{#method-new}{\code{LinkitIZMNotifier$new()}}
 \item \href{#method-get_notificaties}{\code{LinkitIZMNotifier$get_notificaties()}}
 \item \href{#method-remove_notificatie}{\code{LinkitIZMNotifier$remove_notificatie()}}
+\item \href{#method-person_is_in_linkit_dossier}{\code{LinkitIZMNotifier$person_is_in_linkit_dossier()}}
+\item \href{#method-person_has_recent_notificatie}{\code{LinkitIZMNotifier$person_has_recent_notificatie()}}
+\item \href{#method-append_notificatie}{\code{LinkitIZMNotifier$append_notificatie()}}
 \item \href{#method-clone}{\code{LinkitIZMNotifier$clone()}}
 }
 }
@@ -43,6 +46,7 @@ Implementation of a notification system between IZM and LinkIt
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="dossier_naam_from_id">}\href{../../linkitr/html/NA.html#method-dossier_naam_from_id}{\code{linkitr::NA$dossier_naam_from_id()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="execute_query">}\href{../../linkitr/html/NA.html#method-execute_query}{\code{linkitr::NA$execute_query()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="format_dossierid">}\href{../../linkitr/html/NA.html#method-format_dossierid}{\code{linkitr::NA$format_dossierid()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_all_active_dossiers">}\href{../../linkitr/html/NA.html#method-get_all_active_dossiers}{\code{linkitr::NA$get_all_active_dossiers()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_audit">}\href{../../linkitr/html/NA.html#method-get_audit}{\code{linkitr::NA$get_audit()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_con">}\href{../../linkitr/html/NA.html#method-get_con}{\code{linkitr::NA$get_con()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_coordinatoren">}\href{../../linkitr/html/NA.html#method-get_coordinatoren}{\code{linkitr::NA$get_coordinatoren()}}\out{</span>}
@@ -131,6 +135,33 @@ and the notification has not been removed yet.
 }
 \if{html}{\out{</div>}}
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-person_is_in_linkit_dossier"></a>}}
+\if{latex}{\out{\hypertarget{method-person_is_in_linkit_dossier}{}}}
+\subsection{Method \code{person_is_in_linkit_dossier()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$person_is_in_linkit_dossier(pseudo_bsn)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-person_has_recent_notificatie"></a>}}
+\if{latex}{\out{\hypertarget{method-person_has_recent_notificatie}{}}}
+\subsection{Method \code{person_has_recent_notificatie()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$person_has_recent_notificatie(pseudo_bsn, recent_days = 30)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-append_notificatie"></a>}}
+\if{latex}{\out{\hypertarget{method-append_notificatie}{}}}
+\subsection{Method \code{append_notificatie()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$append_notificatie(pseudo_bsn, userid)}\if{html}{\out{</div>}}
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

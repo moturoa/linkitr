@@ -416,6 +416,7 @@ LinkItEngine <- R6::R6Class(
         collect
       
     },
+
     
     get_all_active_dossiers = function(){
       

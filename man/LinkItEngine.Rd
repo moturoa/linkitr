@@ -37,6 +37,7 @@ and `ede-izm_frontend`.
 \item \href{#method-add_dossier}{\code{LinkItEngine$add_dossier()}}
 \item \href{#method-get_dossier}{\code{LinkItEngine$get_dossier()}}
 \item \href{#method-get_my_active_dossiers}{\code{LinkItEngine$get_my_active_dossiers()}}
+\item \href{#method-get_all_active_dossiers}{\code{LinkItEngine$get_all_active_dossiers()}}
 \item \href{#method-get_verwijderde_dossiers}{\code{LinkItEngine$get_verwijderde_dossiers()}}
 \item \href{#method-get_personen_active_dossiers}{\code{LinkItEngine$get_personen_active_dossiers()}}
 \item \href{#method-dossier_naam_from_id}{\code{LinkItEngine$dossier_naam_from_id()}}
@@ -364,6 +365,15 @@ Retrieve all pseudo-BSNs of all persons in active dossiers for the current user.
 
 }
 \if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_all_active_dossiers"></a>}}
+\if{latex}{\out{\hypertarget{method-get_all_active_dossiers}{}}}
+\subsection{Method \code{get_all_active_dossiers()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_all_active_dossiers()}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_verwijderde_dossiers"></a>}}
 \if{latex}{\out{\hypertarget{method-get_verwijderde_dossiers}{}}}
 \subsection{Method \code{get_verwijderde_dossiers()}}{
@@ -377,7 +387,10 @@ Retrieve all pseudo-BSNs of all persons in active dossiers for the current user.
 \if{latex}{\out{\hypertarget{method-get_personen_active_dossiers}{}}}
 \subsection{Method \code{get_personen_active_dossiers()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_personen_active_dossiers(userid)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_personen_active_dossiers(
+  userid = NULL,
+  method = c("current_user", "all")
+)}\if{html}{\out{</div>}}
 }
 
 \subsection{Returns}{
