@@ -771,7 +771,6 @@ LinkItEngine <- R6::R6Class(
         
         dossierid = dossierid,
         kenmerktypeid = kenmerktypeid,
-        status = "Actief",
         creation_time = Sys.time(),
         userid = userid
       ))
