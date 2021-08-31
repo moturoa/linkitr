@@ -576,16 +576,13 @@ LinkItEngine <- R6::R6Class(
         
       }
       
-      
       self$append_data("objecten", tibble(
-        
         objectid = uuid::UUIDgenerate(n = length(ids)),
         dossierid = dossierid,
         objecttype = type,
         objectinstance = as.character(ids),  # pseudo_bsn's, adresseerbaarobject, etc.
         toevoegdatum = Sys.time(),
         verwijderdatum = as.POSIXct(NA)
-        
       ))
       
     },
@@ -598,6 +595,29 @@ LinkItEngine <- R6::R6Class(
       }
       
     },
+    
+    add_persoon_kenmerken = function(dossierid,
+                                     id,
+                                     geboortedatum = "",
+                                     geslacht = "",
+                                     buurt_code = ""){
+      
+      ts <- format(Sys.time())
+      
+      leeftijd <- floor(as.numeric(difftime(Sys.Date(), as.Date(geboortedatum),
+                           units = "weeks")) / 52)
+      
+      self$append_data("persoon_kenmerken", tibble(
+        timestamp = ts,
+        dossierid = dossierid,
+        pseudo_bsn = id,
+        leeftijd = leeftijd,
+        geslacht = geslacht,
+        buurt_code = buurt_code
+      ))
+      
+    },
+    
     
     #' @description Register a new 'unknown' person
     #' @param name

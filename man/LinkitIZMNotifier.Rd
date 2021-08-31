@@ -31,6 +31,7 @@ Implementation of a notification system between IZM and LinkIt
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_dossier_kenmerken">}\href{../../linkitr/html/NA.html#method-add_dossier_kenmerken}{\code{linkitr::NA$add_dossier_kenmerken()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_favorite">}\href{../../linkitr/html/NA.html#method-add_favorite}{\code{linkitr::NA$add_favorite()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_object_to_dossier">}\href{../../linkitr/html/NA.html#method-add_object_to_dossier}{\code{linkitr::NA$add_object_to_dossier()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_persoon_kenmerken">}\href{../../linkitr/html/NA.html#method-add_persoon_kenmerken}{\code{linkitr::NA$add_persoon_kenmerken()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_unknown_location">}\href{../../linkitr/html/NA.html#method-add_unknown_location}{\code{linkitr::NA$add_unknown_location()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_unknown_person">}\href{../../linkitr/html/NA.html#method-add_unknown_person}{\code{linkitr::NA$add_unknown_person()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_user">}\href{../../linkitr/html/NA.html#method-add_user}{\code{linkitr::NA$add_user()}}\out{</span>}

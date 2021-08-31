@@ -50,6 +50,7 @@ and `ede-izm_frontend`.
 \item \href{#method-is_object_in_dossier}{\code{LinkItEngine$is_object_in_dossier()}}
 \item \href{#method-add_object_to_dossier}{\code{LinkItEngine$add_object_to_dossier()}}
 \item \href{#method-remove_object_from_dossier}{\code{LinkItEngine$remove_object_from_dossier()}}
+\item \href{#method-add_persoon_kenmerken}{\code{LinkItEngine$add_persoon_kenmerken()}}
 \item \href{#method-add_unknown_person}{\code{LinkItEngine$add_unknown_person()}}
 \item \href{#method-get_persoon}{\code{LinkItEngine$get_persoon()}}
 \item \href{#method-add_unknown_location}{\code{LinkItEngine$add_unknown_location()}}
@@ -515,6 +516,21 @@ TRUE if successful, FALSE if object already added to dossier.
 \subsection{Method \code{remove_object_from_dossier()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$remove_object_from_dossier(ids, dossierid, userid)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-add_persoon_kenmerken"></a>}}
+\if{latex}{\out{\hypertarget{method-add_persoon_kenmerken}{}}}
+\subsection{Method \code{add_persoon_kenmerken()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$add_persoon_kenmerken(
+  dossierid,
+  id,
+  geboortedatum = "",
+  geslacht = "",
+  buurt_code = ""
+)}\if{html}{\out{</div>}}
 }
 
 }
