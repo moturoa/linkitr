@@ -558,7 +558,8 @@ Register an 'unknown' location
   postcode = "",
   straatnaam = "",
   huisnummer = "",
-  huisnummertoevoeging = ""
+  huisnummertoevoeging = "",
+  plaatsnaam = ""
 )}\if{html}{\out{</div>}}
 }
 
