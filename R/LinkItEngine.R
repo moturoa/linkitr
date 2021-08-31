@@ -655,7 +655,8 @@ LinkItEngine <- R6::R6Class(
                                     postcode = "", 
                                     straatnaam = "",
                                     huisnummer = "",
-                                    huisnummertoevoeging = ""
+                                    huisnummertoevoeging = "",
+                                    plaatsnaam = ""
     ){
       
       
@@ -670,7 +671,8 @@ LinkItEngine <- R6::R6Class(
                          postcode = postcode, 
                          straatnaam = straatnaam,
                          huisnummer = huisnummer,
-                         huisnummertoevoeging = huisnummertoevoeging
+                         huisnummertoevoeging = huisnummertoevoeging,
+                         plaatsnaam = plaatsnaam
                        ))
       
       return(location_id)
