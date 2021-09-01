@@ -528,8 +528,7 @@ TRUE if successful, FALSE if object already added to dossier.
   dossierid,
   id,
   geboortedatum = "",
-  geslacht = "",
-  buurt_code = ""
+  geslacht = ""
 )}\if{html}{\out{</div>}}
 }
 

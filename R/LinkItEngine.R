@@ -599,8 +599,7 @@ LinkItEngine <- R6::R6Class(
     add_persoon_kenmerken = function(dossierid,
                                      id,
                                      geboortedatum = "",
-                                     geslacht = "",
-                                     buurt_code = ""){
+                                     geslacht = ""){
       
       ts <- format(Sys.time())
       
@@ -612,8 +611,7 @@ LinkItEngine <- R6::R6Class(
         dossierid = dossierid,
         pseudo_bsn = id,
         leeftijd = leeftijd,
-        geslacht = geslacht,
-        buurt_code = buurt_code
+        geslacht = geslacht
       ))
       
     },
