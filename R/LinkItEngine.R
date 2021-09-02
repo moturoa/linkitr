@@ -4,6 +4,7 @@
 #' @importsFrom shintobag shinto_db_connection
 #' @importsFrom pool dbPool poolClose
 #' @importsFrom R6 R6Class
+#' @importsFrom safer encrypt_string decrypt_string
 #' @export
 LinkItEngine <- R6::R6Class(
   public = list(
@@ -293,7 +294,7 @@ LinkItEngine <- R6::R6Class(
       
       if(!self$is_favorite(userid, dossierid)){
         
-        self$log_audit(userid, dossierid, actie = glue("Dossier {dossierid gevolgd"))
+        self$log_audit(userid, dossierid, actie = glue("Dossier {dossierid} gevolgd"))
         
         self$append_data("favorieten",
                          tibble(
@@ -652,11 +653,27 @@ LinkItEngine <- R6::R6Class(
       return(persoon_id) 
     },
     
+    #' @description Get a person (an unknown person) by ID
     get_persoon = function(id){
       
       self$read_table("persoon", lazy = TRUE) %>%
         filter(persoonid %in% !!id) %>%
         collect
+      
+    },
+    
+    #' @description Update name, BSN of an unknown person
+    edit_unknown_persoon = function(id, naam, bsn){
+      
+      if(!is.null(naam)){
+        self$replace_value_where("persoon", col_replace = "persoonname", val_replace = naam,
+                                 col_compare = "persoonid", val_compare = id)  
+      }
+      if(!is.null(bsn)){
+        self$replace_value_where("persoon", col_replace = "gekoppeldbsn", val_replace = bsn,
+                                 col_compare = "persoonid", val_compare = id)  
+      }
+      
       
     },
     
@@ -883,7 +900,42 @@ LinkItEngine <- R6::R6Class(
         pull(dossierid) %>%
         unique
       
+    },
+    
+    #' @description Encrypt a value using a secret
+    #' @details A vectorized version of `safer::encrypt_string`
+    #' @param x A vector of values to encrypt
+    #' @param secret The secret to use, set options(linkit_secret = "abc")
+    encrypt = function(x, secret = getOption("linkit_secret")){
+    
+    vapply(x, safer::encrypt_string, key = secret,
+           USE.NAMES = FALSE, FUN.VALUE = character(1)
+    )
+    },
+    
+    #' @description Decrypt a value using a secret
+    #' @details A vectorized version of `safer::decrypt_string`.
+    #' Missing values and empty strings are returned unchanged.
+    #' @param x A vector of values to decrypt
+    #' @param secret The secret to use, set options(linkit_secret = "abc")
+    decrypt = function(x, secret = getOption("linkit_secret")){
+      
+      ii <- which(!is.na(x) & stringr::str_trim(x) != "")
+      jj <- setdiff(1:length(x),ii)
+      
+      d <- vapply(x[ii], 
+                  safer::decrypt_string, 
+                  key = secret,
+                  USE.NAMES = FALSE, FUN.VALUE = character(1)
+      )
+      
+      out <- vector("character", length = length(x))
+      out[ii] <- d
+      out[jj] <- x[jj]
+      
+      out
     }
+    
     
   ),
   

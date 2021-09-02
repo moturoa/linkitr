@@ -186,7 +186,7 @@ if(FALSE){
 
 
 
-
+.sys$decrypt(.sys$encrypt("hallo!", secret = "Abc"), secret = "Abc")
 
 
 

@@ -53,6 +53,7 @@ and `ede-izm_frontend`.
 \item \href{#method-add_persoon_kenmerken}{\code{LinkItEngine$add_persoon_kenmerken()}}
 \item \href{#method-add_unknown_person}{\code{LinkItEngine$add_unknown_person()}}
 \item \href{#method-get_persoon}{\code{LinkItEngine$get_persoon()}}
+\item \href{#method-edit_unknown_persoon}{\code{LinkItEngine$edit_unknown_persoon()}}
 \item \href{#method-add_unknown_location}{\code{LinkItEngine$add_unknown_location()}}
 \item \href{#method-delete_unknown_location}{\code{LinkItEngine$delete_unknown_location()}}
 \item \href{#method-get_unknown_location}{\code{LinkItEngine$get_unknown_location()}}
@@ -70,6 +71,8 @@ and `ede-izm_frontend`.
 \item \href{#method-replace_dossier_coordinatoren}{\code{LinkItEngine$replace_dossier_coordinatoren()}}
 \item \href{#method-get_coordinatoren}{\code{LinkItEngine$get_coordinatoren()}}
 \item \href{#method-get_dossierid_coordinatoren}{\code{LinkItEngine$get_dossierid_coordinatoren()}}
+\item \href{#method-encrypt}{\code{LinkItEngine$encrypt()}}
+\item \href{#method-decrypt}{\code{LinkItEngine$decrypt()}}
 \item \href{#method-clone}{\code{LinkItEngine$clone()}}
 }
 }
@@ -555,8 +558,19 @@ The new ID of the person
 \if{html}{\out{<a id="method-get_persoon"></a>}}
 \if{latex}{\out{\hypertarget{method-get_persoon}{}}}
 \subsection{Method \code{get_persoon()}}{
+Get a person (an unknown person) by ID
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_persoon(id)}\if{html}{\out{</div>}}
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-edit_unknown_persoon"></a>}}
+\if{latex}{\out{\hypertarget{method-edit_unknown_persoon}{}}}
+\subsection{Method \code{edit_unknown_persoon()}}{
+Update name, BSN of an unknown person
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$edit_unknown_persoon(id, naam, bsn)}\if{html}{\out{</div>}}
 }
 
 }
@@ -810,6 +824,53 @@ Get dossierid's for given coordinatoren
 \subsection{Returns}{
 A vector of dossierid's
 }
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-encrypt"></a>}}
+\if{latex}{\out{\hypertarget{method-encrypt}{}}}
+\subsection{Method \code{encrypt()}}{
+Encrypt a value using a secret
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$encrypt(x, secret = getOption("linkit_secret"))}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{x}}{A vector of values to encrypt}
+
+\item{\code{secret}}{The secret to use, set options(linkit_secret = "abc")}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+A vectorized version of `safer::encrypt_string`
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-decrypt"></a>}}
+\if{latex}{\out{\hypertarget{method-decrypt}{}}}
+\subsection{Method \code{decrypt()}}{
+Decrypt a value using a secret
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$decrypt(x, secret = getOption("linkit_secret"))}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{x}}{A vector of values to decrypt}
+
+\item{\code{secret}}{The secret to use, set options(linkit_secret = "abc")}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+A vectorized version of `safer::decrypt_string`.
+Missing values and empty strings are returned unchanged.
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-clone"></a>}}

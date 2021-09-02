@@ -37,6 +37,7 @@ Implementation of a notification system between IZM and LinkIt
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_user">}\href{../../linkitr/html/NA.html#method-add_user}{\code{linkitr::NA$add_user()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="append_data">}\href{../../linkitr/html/NA.html#method-append_data}{\code{linkitr::NA$append_data()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="close">}\href{../../linkitr/html/NA.html#method-close}{\code{linkitr::NA$close()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="decrypt">}\href{../../linkitr/html/NA.html#method-decrypt}{\code{linkitr::NA$decrypt()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_dossier">}\href{../../linkitr/html/NA.html#method-delete_dossier}{\code{linkitr::NA$delete_dossier()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_dossier_coordinatoren">}\href{../../linkitr/html/NA.html#method-delete_dossier_coordinatoren}{\code{linkitr::NA$delete_dossier_coordinatoren()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_favorite">}\href{../../linkitr/html/NA.html#method-delete_favorite}{\code{linkitr::NA$delete_favorite()}}\out{</span>}
@@ -45,6 +46,8 @@ Implementation of a notification system between IZM and LinkIt
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_unknown_location">}\href{../../linkitr/html/NA.html#method-delete_unknown_location}{\code{linkitr::NA$delete_unknown_location()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="dossier_exists">}\href{../../linkitr/html/NA.html#method-dossier_exists}{\code{linkitr::NA$dossier_exists()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="dossier_naam_from_id">}\href{../../linkitr/html/NA.html#method-dossier_naam_from_id}{\code{linkitr::NA$dossier_naam_from_id()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="edit_unknown_persoon">}\href{../../linkitr/html/NA.html#method-edit_unknown_persoon}{\code{linkitr::NA$edit_unknown_persoon()}}\out{</span>}
+\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="encrypt">}\href{../../linkitr/html/NA.html#method-encrypt}{\code{linkitr::NA$encrypt()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="execute_query">}\href{../../linkitr/html/NA.html#method-execute_query}{\code{linkitr::NA$execute_query()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="format_dossierid">}\href{../../linkitr/html/NA.html#method-format_dossierid}{\code{linkitr::NA$format_dossierid()}}\out{</span>}
 \item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_all_active_dossiers">}\href{../../linkitr/html/NA.html#method-get_all_active_dossiers}{\code{linkitr::NA$get_all_active_dossiers()}}\out{</span>}
