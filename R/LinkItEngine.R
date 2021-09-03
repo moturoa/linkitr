@@ -398,6 +398,7 @@ LinkItEngine <- R6::R6Class(
       
     },
     
+    #' @description Get a dossier based on its ID
     get_dossier = function(dossierid){
       
       self$read_table("dossiers", lazy = TRUE) %>%
@@ -406,8 +407,7 @@ LinkItEngine <- R6::R6Class(
       
     },
     
-    #' Get all active dossiers of which userid is a coordinator
-    #' @description Retrieves dossiers with 'Actief' or 'Volgen' status.
+    #' @description Retrieves dossiers for a user 'Actief' or 'Volgen' status for 
     get_my_active_dossiers = function(userid){
       
       dossierids <- self$get_dossierid_coordinatoren(userid)
@@ -418,7 +418,7 @@ LinkItEngine <- R6::R6Class(
       
     },
 
-    
+    #' @description Find all dossiers with 'Actief' or 'Volgen' status
     get_all_active_dossiers = function(){
       
       self$read_table("dossiers", lazy = TRUE) %>%
@@ -427,6 +427,7 @@ LinkItEngine <- R6::R6Class(
       
     },
     
+    #' @description Find all dossiers with 'Verwijderd' status
     get_verwijderde_dossiers = function(){
       
       self$read_table("dossiers", lazy = TRUE) %>%
@@ -457,14 +458,14 @@ LinkItEngine <- R6::R6Class(
       
     },
     
-    
+    #' @description Find the name of a dossier based on its ID
     dossier_naam_from_id = function(dossierid){
       
       self$get_dossier(dossierid) %>% pull(dossiername)
       
     },
     
-    #' Really delete a dossier.
+    #' @description Really delete a dossier.
     delete_dossier = function(dossierid){
       
       self$delete_rows_where("dossiers", "dossierid", dossierid)
@@ -476,7 +477,7 @@ LinkItEngine <- R6::R6Class(
       
     },
     
-    #' Set status dossier to 'Verwijderd'
+    #' @description Set status dossier to 'Verwijderd'
     verwijder_dossier = function(dossierid){
       
       dbExecute(self$con, glue("update {self$schema}.dossiers set",
@@ -485,7 +486,7 @@ LinkItEngine <- R6::R6Class(
                                " archiefdatum = '{format(Sys.time())}' where dossierid = {dossierid}"))
     },
     
-    #' Undo verwijder_dossier
+    #' @description Undo verwijder_dossier
     undo_verwijder_dossier = function(dossierid){
       
       dbExecute(self$con, glue("update {self$schema}.dossiers set",
@@ -495,7 +496,7 @@ LinkItEngine <- R6::R6Class(
     },
     
     
-    #' Does the given Dossier ID actually exist?
+    #' @description Does the given Dossier ID actually exist?
     dossier_exists = function(dossierid){
       
       self$has_value("dossiers", "dossierid", dossierid)  
@@ -529,7 +530,7 @@ LinkItEngine <- R6::R6Class(
     },
     
     
-    #' Is this objectinstance a member of dossier?
+    #' @description Is this objectinstance a member of dossier?
     #' @return TRUE if object is in the dossier, FALSE otherwise.
     is_object_in_dossier = function(objectinstance, dossierid){
       
@@ -593,6 +594,7 @@ LinkItEngine <- R6::R6Class(
       
     },
     
+    #' @description Remove an object from a dossier
     remove_object_from_dossier = function(ids, dossierid, userid){
       
       for(id in ids){
@@ -602,6 +604,7 @@ LinkItEngine <- R6::R6Class(
       
     },
     
+    #' @description Add kenmerken to a persoon
     add_persoon_kenmerken = function(dossierid,
                                      id,
                                      geboortedatum = "",
