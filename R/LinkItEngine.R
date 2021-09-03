@@ -468,6 +468,11 @@ LinkItEngine <- R6::R6Class(
     delete_dossier = function(dossierid){
       
       self$delete_rows_where("dossiers", "dossierid", dossierid)
+      self$delete_rows_where("favorieten", "dossierid", dossierid)
+      self$delete_rows_where("dossierkenmerk", "dossierid", dossierid)
+      self$delete_rows_where("coordinatoren", "dossierid", dossierid)
+      self$delete_rows_where("objecten", "dossierid", dossierid)
+      self$delete_rows_where("persoon_kenmerken", "dossierid", dossierid)
       
     },
     
