@@ -506,7 +506,7 @@ LinkItEngine <- R6::R6Class(
     
     
     #' @description Log an audit action
-    log_audit = function(userid, dossierid, actie){
+    log_audit = function(userid, dossierid, actie, pseudo_bsn = ""){
       
       self$append_data("audittrail", 
                        tibble(
@@ -514,7 +514,8 @@ LinkItEngine <- R6::R6Class(
                          userid = userid,
                          dossierid = dossierid,
                          actie = actie,
-                         tijdstip = Sys.time()
+                         tijdstip = Sys.time(),
+                         pseudo_bsn = pseudo_bsn
                        ))
       
       
@@ -561,8 +562,6 @@ LinkItEngine <- R6::R6Class(
       }
       
       
-      self$log_audit(userid, dossierid, actie = glue("Object type {type} toegevoegd aan Dossier {dossierid}."))
-      
       # current objects in dossier
       cur_ids <- self$get_objects(dossierid) %>% pull(objectinstance)
       
@@ -591,6 +590,15 @@ LinkItEngine <- R6::R6Class(
         toevoegdatum = Sys.time(),
         verwijderdatum = as.POSIXct(NA)
       ))
+      
+      if(type == "bsn_persoon"){
+        pids <- paste(ids, collapse=';')
+        self$log_audit(userid, dossierid, actie = glue("Object type {type} toegevoegd aan Dossier {dossierid},",
+                                                       " pseudo-BSN: {pids}"),
+                       pseudo_bsn = pids)
+      } else {
+        self$log_audit(userid, dossierid, actie = glue("Object type {type} toegevoegd aan Dossier {dossierid}."))
+      }
       
     },
     

@@ -345,13 +345,13 @@ Make a new dossier, write to DB
 }
 \subsection{Returns}{
 The (usually new) ID of the dossier.
-Get all active dossiers of which userid is a coordinator
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-get_dossier"></a>}}
 \if{latex}{\out{\hypertarget{method-get_dossier}{}}}
 \subsection{Method \code{get_dossier()}}{
+Get a dossier based on its ID
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_dossier(dossierid)}\if{html}{\out{</div>}}
 }
@@ -361,8 +361,7 @@ Get all active dossiers of which userid is a coordinator
 \if{html}{\out{<a id="method-get_my_active_dossiers"></a>}}
 \if{latex}{\out{\hypertarget{method-get_my_active_dossiers}{}}}
 \subsection{Method \code{get_my_active_dossiers()}}{
-Retrieves dossiers with 'Actief' or 'Volgen' status.
-Retrieve all pseudo-BSNs of all persons in active dossiers for the current user.
+Retrieves dossiers for a user 'Actief' or 'Volgen' status for
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_my_active_dossiers(userid)}\if{html}{\out{</div>}}
 }
@@ -372,6 +371,7 @@ Retrieve all pseudo-BSNs of all persons in active dossiers for the current user.
 \if{html}{\out{<a id="method-get_all_active_dossiers"></a>}}
 \if{latex}{\out{\hypertarget{method-get_all_active_dossiers}{}}}
 \subsection{Method \code{get_all_active_dossiers()}}{
+Find all dossiers with 'Actief' or 'Volgen' status
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_all_active_dossiers()}\if{html}{\out{</div>}}
 }
@@ -381,6 +381,8 @@ Retrieve all pseudo-BSNs of all persons in active dossiers for the current user.
 \if{html}{\out{<a id="method-get_verwijderde_dossiers"></a>}}
 \if{latex}{\out{\hypertarget{method-get_verwijderde_dossiers}{}}}
 \subsection{Method \code{get_verwijderde_dossiers()}}{
+Find all dossiers with 'Verwijderd' status
+Retrieve all pseudo-BSNs of all persons in active dossiers for the current user.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_verwijderde_dossiers()}\if{html}{\out{</div>}}
 }
@@ -399,16 +401,13 @@ Retrieve all pseudo-BSNs of all persons in active dossiers for the current user.
 
 \subsection{Returns}{
 Vector of pseudo-BSNs
-Really delete a dossier.
-Set status dossier to 'Verwijderd'
-Undo verwijder_dossier
-Does the given Dossier ID actually exist?
 }
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-dossier_naam_from_id"></a>}}
 \if{latex}{\out{\hypertarget{method-dossier_naam_from_id}{}}}
 \subsection{Method \code{dossier_naam_from_id()}}{
+Find the name of a dossier based on its ID
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$dossier_naam_from_id(dossierid)}\if{html}{\out{</div>}}
 }
@@ -418,6 +417,7 @@ Does the given Dossier ID actually exist?
 \if{html}{\out{<a id="method-delete_dossier"></a>}}
 \if{latex}{\out{\hypertarget{method-delete_dossier}{}}}
 \subsection{Method \code{delete_dossier()}}{
+Really delete a dossier.
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$delete_dossier(dossierid)}\if{html}{\out{</div>}}
 }
@@ -427,6 +427,7 @@ Does the given Dossier ID actually exist?
 \if{html}{\out{<a id="method-verwijder_dossier"></a>}}
 \if{latex}{\out{\hypertarget{method-verwijder_dossier}{}}}
 \subsection{Method \code{verwijder_dossier()}}{
+Set status dossier to 'Verwijderd'
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$verwijder_dossier(dossierid)}\if{html}{\out{</div>}}
 }
@@ -436,6 +437,7 @@ Does the given Dossier ID actually exist?
 \if{html}{\out{<a id="method-undo_verwijder_dossier"></a>}}
 \if{latex}{\out{\hypertarget{method-undo_verwijder_dossier}{}}}
 \subsection{Method \code{undo_verwijder_dossier()}}{
+Undo verwijder_dossier
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$undo_verwijder_dossier(dossierid)}\if{html}{\out{</div>}}
 }
@@ -445,6 +447,7 @@ Does the given Dossier ID actually exist?
 \if{html}{\out{<a id="method-dossier_exists"></a>}}
 \if{latex}{\out{\hypertarget{method-dossier_exists}{}}}
 \subsection{Method \code{dossier_exists()}}{
+Does the given Dossier ID actually exist?
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$dossier_exists(dossierid)}\if{html}{\out{</div>}}
 }
@@ -456,7 +459,7 @@ Does the given Dossier ID actually exist?
 \subsection{Method \code{log_audit()}}{
 Log an audit action
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$log_audit(userid, dossierid, actie)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$log_audit(userid, dossierid, actie, pseudo_bsn = "")}\if{html}{\out{</div>}}
 }
 
 }
@@ -465,7 +468,6 @@ Log an audit action
 \if{latex}{\out{\hypertarget{method-get_audit}{}}}
 \subsection{Method \code{get_audit()}}{
 Get dossier kenmerken for a dossierid
-Is this objectinstance a member of dossier?
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$get_audit(dossierid)}\if{html}{\out{</div>}}
 }
@@ -475,6 +477,7 @@ Is this objectinstance a member of dossier?
 \if{html}{\out{<a id="method-is_object_in_dossier"></a>}}
 \if{latex}{\out{\hypertarget{method-is_object_in_dossier}{}}}
 \subsection{Method \code{is_object_in_dossier()}}{
+Is this objectinstance a member of dossier?
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$is_object_in_dossier(objectinstance, dossierid)}\if{html}{\out{</div>}}
 }
@@ -517,6 +520,7 @@ TRUE if successful, FALSE if object already added to dossier.
 \if{html}{\out{<a id="method-remove_object_from_dossier"></a>}}
 \if{latex}{\out{\hypertarget{method-remove_object_from_dossier}{}}}
 \subsection{Method \code{remove_object_from_dossier()}}{
+Remove an object from a dossier
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$remove_object_from_dossier(ids, dossierid, userid)}\if{html}{\out{</div>}}
 }
@@ -526,6 +530,7 @@ TRUE if successful, FALSE if object already added to dossier.
 \if{html}{\out{<a id="method-add_persoon_kenmerken"></a>}}
 \if{latex}{\out{\hypertarget{method-add_persoon_kenmerken}{}}}
 \subsection{Method \code{add_persoon_kenmerken()}}{
+Add kenmerken to a persoon
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkItEngine$add_persoon_kenmerken(
   dossierid,
