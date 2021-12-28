@@ -104,7 +104,7 @@ LinkItEngine <- R6::R6Class(
     
     append_data = function(table, data){
       
-      flog.info(glue("dbWriteTable({table})"), append = TRUE, name = "DBR6")
+      flog.info(glue("append {nrow(data)} rows to '{table}'"), name = "DBR6")
       
       if(!is.null(self$schema)){
         tm <- try(
@@ -735,7 +735,6 @@ LinkItEngine <- R6::R6Class(
       
     },
     
-    
     get_unknown_location = function(id){
       
       self$read_table("locatie", lazy = TRUE) %>%
@@ -812,11 +811,22 @@ LinkItEngine <- R6::R6Class(
       
     },
     
+    n_personen_dossier = function(dossierid){
+      
+      out <- self$read_table("objecten", lazy = TRUE) %>%
+        filter(dossierid %in% !!dossierid,
+               objecttype %in% c("bsn_persoon","onbekend_persoon")) %>%
+        summarize(n()) %>%
+        collect
+      
+      as.integer(out[[1]])
+      
+    },
+    
     #' @description Save kenmerktypes for a dossier
     #' @param dossierid The dossier ID
     #' @param A vector of kenmerktypes
     add_dossier_kenmerken = function(dossierid, kenmerktypeid, userid){
-      
       
       n_kenm <- length(kenmerktypeid)
       
