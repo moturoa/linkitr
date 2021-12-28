@@ -458,6 +458,16 @@ LinkItEngine <- R6::R6Class(
       
     },
     
+    get_objecten_objectinstance = function(ids){
+      
+      self$read_table("objecten", lazy = TRUE) %>% 
+        filter(objectinstance %in% !!ids) %>%
+        collect
+      
+    },
+    
+    
+    
     #' @description Find the name of a dossier based on its ID
     dossier_naam_from_id = function(dossierid){
       
