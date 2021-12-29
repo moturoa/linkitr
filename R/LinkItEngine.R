@@ -375,6 +375,7 @@ LinkItEngine <- R6::R6Class(
                            aanmaakdatum, 
                            verloopdatum, 
                            betrokkeninstanties,
+                           aanmelder,
                            id = NULL){
       
       if(is.null(id)){
@@ -391,7 +392,8 @@ LinkItEngine <- R6::R6Class(
                          #archiefdatum = 
                          #hoofdadresid =
                          actuele_status = "Actief",
-                         betrokkeninstanties = betrokkeninstanties
+                         betrokkeninstanties = paste(betrokkeninstanties, collapse=";"),
+                         aanmelder = aanmelder
                        ))
       
       return(id)
