@@ -492,10 +492,16 @@ LinkItEngine <- R6::R6Class(
     #' @description Set status dossier to 'Verwijderd'
     verwijder_dossier = function(dossierid){
       
+      tm_now <- Sys.time()
+      tm_10yr <- tm_now + lubridate::years(10)
+      
       dbExecute(self$con, glue("update {self$schema}.dossiers set",
                                " actuele_status = 'Verwijderd' where dossierid = {dossierid}"))
       dbExecute(self$con, glue("update {self$schema}.dossiers set",
-                               " archiefdatum = '{format(Sys.time())}' where dossierid = {dossierid}"))
+                               " archiefdatum = '{format(tm_now)}' where dossierid = {dossierid}"))
+      dbExecute(self$con, glue("update {self$schema}.dossiers set",
+                               " verloopdatum = '{format(tm_10yr)}' where dossierid = {dossierid}"))
+      
     },
     
     #' @description Undo verwijder_dossier
@@ -505,6 +511,8 @@ LinkItEngine <- R6::R6Class(
                                " actuele_status = 'Actief' where dossierid = {dossierid}"))
       dbExecute(self$con, glue("update {self$schema}.dossiers set",
                                " archiefdatum = NULL where dossierid = {dossierid}"))
+      dbExecute(self$con, glue("update {self$schema}.dossiers set",
+                               " verloopdatum = NULL where dossierid = {dossierid}"))
     },
     
     
