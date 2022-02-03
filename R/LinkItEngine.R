@@ -19,14 +19,18 @@ LinkItEngine <- R6::R6Class(
     initialize = function(gemeente, schema, pool, config_file = "conf/config.yml"){
       
       flog.info("DB Connection", name = "DBR6")
-      flog.info("Using Postgres - devpostgres02", name = "DBR6")
-      
+
       self$gemeente <- gemeente
       self$pool <- pool
-      
       self$schema <- schema
+      what <- tolower(gemeente)
+      
+      cf <- config::get(what, file = config_file)
+      print("----CONNECTING TO----")
+      print(cf$dbhost)
+      
       response <- try({
-        shintobag::shinto_db_connection(what = tolower(self$gemeente), 
+        shintobag::shinto_db_connection(what = what, 
                                         pool = pool, 
                                         file = config_file)
       })
