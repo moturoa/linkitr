@@ -405,6 +405,7 @@ LinkItEngine <- R6::R6Class(
     },
     
     #' @description Get a dossier based on its ID
+    #' @param dossierid Dossier ID's (can be a vector)
     get_dossier = function(dossierid){
       
       self$read_table("dossiers", lazy = TRUE) %>%
@@ -469,6 +470,18 @@ LinkItEngine <- R6::R6Class(
       self$read_table("objecten", lazy = TRUE) %>% 
         filter(objectinstance %in% !!ids) %>%
         collect
+      
+    },
+    
+    get_dossierid_personen = function(pseudoid){
+      
+      doss_ids <- self$get_objecten_objectinstance(pseudoid) %>% 
+        pull(dossierid) %>%
+        unique
+      
+      doss_nms <-self$dossier_naam_from_id(doss_ids)
+      
+      tibble(dossierid = doss_ids, dossiername = doss_nms)
       
     },
     
