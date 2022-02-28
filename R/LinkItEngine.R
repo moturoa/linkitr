@@ -541,6 +541,34 @@ LinkItEngine <- R6::R6Class(
     },
     
     
+    #' @description Betrokken instantie toevoegen
+    add_instantie = function(instantie, properties = ""){
+      
+      
+      data_have <- self$read_table("instanties") %>% 
+        filter(instantie == !!instantie) %>%
+        collect
+      
+      n_have <- nrow(data_have)
+      
+      if(n_have == 0){
+        self$append_data(
+          "instanties",
+          tibble(
+            instantie = instantie,
+            properties = properties
+          )
+        ) 
+        
+        return(1)
+        
+      } else {
+        return(-1)
+      }
+      
+      
+    },
+    
     
     #' @description Log an audit action
     log_audit = function(userid, dossierid, actie, pseudo_bsn = ""){

@@ -1,7 +1,7 @@
 Package: linkitr
 Type: Package
 Title: LinkIt as an R package
-Version: 0.2-4
+Version: 0.3
 Author: Remko Duursma
 Maintainer: Remko Duursma <remko@shintolabs.nl>
 Description: All methods for the LinkIt Frontend application in one R6 object.
