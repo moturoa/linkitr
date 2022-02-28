@@ -545,7 +545,7 @@ LinkItEngine <- R6::R6Class(
     add_instantie = function(instantie, properties = ""){
       
       
-      data_have <- self$read_table("instanties") %>% 
+      data_have <- self$read_table("instanties", lazy = TRUE) %>% 
         filter(instantie == !!instantie) %>%
         collect
       
@@ -566,6 +566,14 @@ LinkItEngine <- R6::R6Class(
         return(-1)
       }
       
+      
+    },
+    
+    list_instanties = function(){
+      
+      self$read_table("instanties") %>% 
+        pull(instantie) %>%
+        stringr::str_sort()
       
     },
     
