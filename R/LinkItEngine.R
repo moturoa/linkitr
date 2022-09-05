@@ -251,7 +251,7 @@ LinkItEngine <- R6::R6Class(
         collect
       
       ii <- match(userid, users$userid)
-      if(length(ii) == 0 || is.na(ii)){
+      if(length(ii) == 0 || all(is.na(ii))){
         userid
       } else {
         users$username[ii]  
@@ -549,12 +549,15 @@ LinkItEngine <- R6::R6Class(
         filter(instantie == !!instantie) %>%
         collect
       
+      id_max <- self$query("select max(id) from linkit.instanties")[[1]]
+      
       n_have <- nrow(data_have)
       
       if(n_have == 0){
         self$append_data(
           "instanties",
           tibble(
+            id = id_max + 1,
             instantie = instantie,
             properties = properties
           )
