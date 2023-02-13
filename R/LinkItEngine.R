@@ -7,37 +7,21 @@
 #' @importsFrom safer encrypt_string decrypt_string
 #' @export
 LinkItEngine <- R6::R6Class(
+  lock_objects = FALSE,
+  inherit = shintodb::databaseClass,
+  
   public = list(
     
-    con = NULL,
-    schema = NULL,
-    pool = NULL,
     sel = NULL,
     gemeente = NULL,
     gebruikers = NULL,
     
     initialize = function(gemeente, schema, pool, config_file = "conf/config.yml"){
       
-      flog.info("DB Connection", name = "DBR6")
-
       self$gemeente <- gemeente
-      self$pool <- pool
-      self$schema <- schema
       what <- tolower(gemeente)
       
-      cf <- config::get(what, file = config_file)
-      print("----CONNECTING TO----")
-      print(cf$dbhost)
-      
-      response <- try({
-        shintobag::shinto_db_connection(what = what, 
-                                        pool = pool, 
-                                        file = config_file)
-      })
-      
-      if(!inherits(response, "try-error")){
-        self$con <- response
-      }
+      super$initialize(what = what, config_file = config_file, pool = pool, schema = schema)
       
       self$gebruikers <- self$read_table("gebruikers")
       dossierkenmerktype <- self$read_table("dossierkenmerktype")
