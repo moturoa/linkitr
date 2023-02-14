@@ -1,25 +1,14 @@
 #' Implementation of a notification system between IZM and LinkIt
 #' @export
-LinkitIZMNotifier <- R6::R6Class(inherit = LinkItEngine,
+LinkitIZMNotifier <- R6::R6Class(
+  lock_objects = FALSE,
+  inherit = LinkItEngine,
+  
   public = list(
     
-    initialize = function(config_name, schema, pool, config_file = "conf/config.yml"){
+    initialize = function(what, schema, pool, config_file = "conf/config.yml"){
       
-      flog.info("DB Connection", name = "DBR6")
-      flog.info("Using Postgres - devpostgres02", name = "DBR6")
-      
-      self$pool <- pool
-      
-      self$schema <- schema
-      response <- try({
-        shintobag::shinto_db_connection(what = config_name, 
-                                        pool = pool, 
-                                        file = config_file)
-      })
-      
-      if(!inherits(response, "try-error")){
-        self$con <- response
-      }
+      super$initialize(what = what, schema = schema, pool = pool, config_file = config_file)
       
     },
     

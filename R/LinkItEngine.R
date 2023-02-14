@@ -16,10 +16,15 @@ LinkItEngine <- R6::R6Class(
     gemeente = NULL,
     gebruikers = NULL,
     
-    initialize = function(gemeente, schema, pool, config_file = "conf/config.yml"){
+    initialize = function(gemeente = NULL, schema, pool, config_file = "conf/config.yml", what = NULL){
       
       self$gemeente <- gemeente
-      what <- tolower(gemeente)
+      
+      # LinkIt default: config entry = 'ede'
+      if(is.null(what)){
+        what <- tolower(gemeente)  
+      }
+      
       
       super$initialize(what = what, config_file = config_file, pool = pool, schema = schema)
       
