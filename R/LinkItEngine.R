@@ -47,101 +47,6 @@ LinkItEngine <- R6::R6Class(
     },
     
     
-    #----- General method ----
-    list_tables = function(){
-      
-      DBI::dbGetQuery(self$con,
-                 glue("SELECT table_name FROM information_schema.tables
-                   WHERE table_schema='{self$schema}'"))
-    },
-    
-    
-    close = function(){
-      
-      if(!is.null(self$con) && dbIsValid(self$con)){
-        if(self$pool){
-          flog.info("poolClose", name = "DBR6")
-          
-          poolClose(self$con)
-        } else {
-          flog.info("dbDisconnect", name = "DBR6")
-          
-          DBI::dbDisconnect(self$con)
-        }
-        
-      } else {
-        flog.info("Not closing an invalid or null connection", name = "DBR6")
-      }
-      
-    },
-    
-    #returns tibble
-    read_table = function(table, lazy = FALSE){
-      
-      flog.info(glue("tbl({table})"), name = "DBR6")
-      
-      if(!is.null(self$schema)){
-        table <- in_schema(self$schema, table)
-      }
-      
-      out <- tbl(self$con, table)
-      
-      if(!lazy){
-        out <- collect(out)
-      }
-      
-      out
-      
-    },
-    
-    
-    append_data = function(table, data){
-      
-      flog.info(glue("append {nrow(data)} rows to '{table}'"), name = "DBR6")
-      
-      if(!is.null(self$schema)){
-        tm <- try(
-          dbWriteTable(self$con,
-                       name = Id(schema = self$schema, table = table),
-                       value = data,
-                       append = TRUE)
-        )
-      } else {
-        tm <- try(
-          dbWriteTable(self$con,
-                       name = table,
-                       value = data,
-                       append = TRUE)
-        )
-        
-      }
-      
-      return(invisible(!inherits(tm, "try-error")))
-    },
-    
-    query = function(txt, glue = TRUE){
-      
-      if(glue)txt <- glue::glue(txt)
-      
-      flog.info(glue("query({txt})"), name = "DBR6")
-      
-      try(
-        dbGetQuery(self$con, txt)
-      )
-      
-    },
-    
-    execute_query = function(txt, glue = TRUE){
-      
-      if(glue)txt <- glue::glue(txt)
-      
-      flog.info(glue("query({txt})"), name = "DBR6")
-      
-      try(
-        dbExecute(self$con, txt)
-      )
-      
-    },
     
     delete_rows_where = function(table, col_compare, val_compare){
       
@@ -169,21 +74,7 @@ LinkItEngine <- R6::R6Class(
       return(invisible(!inherits(tm, "try-error")))
     },
     
-    replace_value_where = function(table, col_replace, val_replace, col_compare, val_compare){
-      
-      query <- glue("update {self$schema}.{table} set {col_replace} = ?val_replace where ",
-                    "{col_compare} = ?val_compare") %>% as.character()
-      
-      query <- sqlInterpolate(DBI::ANSI(), 
-                              query, 
-                              val_replace = val_replace, val_compare = val_compare)
-      
-      flog.info(glue("replace_value_where({query})"), name = "DBR6")
-      
-      dbExecute(self$con, query)
-      
-      
-    },
+    
     
     get_con = function(){
       if(!is.null(self$con) && dbIsValid(self$con)){
@@ -249,21 +140,21 @@ LinkItEngine <- R6::R6Class(
       
     },
     
-    is_admin = function(userid){
+
+    get_favorites = function(userid, lazy = FALSE){
       
-      role <- self$gebruikers %>%
-        filter(userid == !!userid) %>%
-        pull(userrole)
-      
-      isTRUE(role == 2)  # 1 is viewer, 2 is admin?
-    },
-    
-    
-    get_favorites = function(userid){
-      
-      self$read_table("favorieten", lazy = TRUE) %>%
+      fav <- self$read_table("favorieten", lazy = TRUE) %>%
         filter(userid == !!userid) %>%
         collect
+      
+      out <- self$read_table("dossiers", lazy = TRUE) %>% 
+        filter(dossierid %in% !!fav$dossierid)
+      
+      if(lazy){
+        return(out)
+      } else {
+        return(collect(out))
+      }
       
     },
     
@@ -868,11 +759,16 @@ LinkItEngine <- R6::R6Class(
     
     #' @description Get all objects in a dossier
     #' @param dossierid The dossier ID (integer)
-    get_objects = function(dossierid){
+    get_objects = function(dossierid, type = NULL){
       
-      self$read_table("objecten", lazy = TRUE) %>%
-        filter(dossierid %in% !!dossierid) %>%
-        collect
+      query <- self$read_table("objecten", lazy = TRUE) %>%
+        filter(dossierid %in% !!dossierid)
+      
+      if(!is.null(type)){
+        query <- filter(query, objecttype %in% !!type)
+      }
+      
+      collect(query)
       
     },
     
