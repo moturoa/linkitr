@@ -28,14 +28,11 @@ LinkItEngine <- R6::R6Class(
       
       super$initialize(what = what, config_file = config_file, pool = pool, schema = schema)
       
-      self$gebruikers <- self$read_table("gebruikers")
       dossierkenmerktype <- self$read_table("dossierkenmerktype")
       objectkenmerktype <- self$read_table("objectkenmerktype")
       
       self$sel <- list(
-        coordinatoren = self$make_choices(values_from = "userid",
-                                          names_from = "username",
-                                          data = self$gebruikers),
+
         dossierkenmerktypes =  self$make_choices(values_from = "typeid",
                                                  names_from = "naam",
                                                  data = dossierkenmerktype),
@@ -46,8 +43,33 @@ LinkItEngine <- R6::R6Class(
       
     },
     
+    #----- User methods (via shintousers) ---
+    store_user_object = function(.user){
+      
+      stopifnot(inherits(.user, "ShintoUsers"))
+      
+      self$.user <- .user
+      
+    },
+    
+    save_coordinatoren_list = function(){
+      
+      self$gebruikers <- self$.user$list_application_users(ignore_groups = "ontwikkelaar")
+      
+      self$sel$coordinatoren <- self$make_choices(values_from = "userid",
+                                        names_from = "username",
+                                        data = self$gebruikers)
+      
+    },
+    
+    username_from_userid = function(userid){
+      
+      self$.user$get_name(userid)
+      
+    },
     
     
+    # ---- algemene DB methodes niet in shintodb (of wel maar dan net anders, deze heeft voorrang!)
     delete_rows_where = function(table, col_compare, val_compare){
       
       query <- glue("delete from {self$schema}.{table} where {col_compare}= ?val")
@@ -74,25 +96,8 @@ LinkItEngine <- R6::R6Class(
       return(invisible(!inherits(tm, "try-error")))
     },
     
-    
-    
-    get_con = function(){
-      if(!is.null(self$con) && dbIsValid(self$con)){
-        self$con
-      }
-    },
-    
-    has_value = function(table, column, value){
-      
-      query <- glue("select {column} from {self$schema}.{table} where {column}= ?val")
-      query <- sqlInterpolate(DBI::ANSI(), query, val = value)
-      
-      out <- self$query(query)
-      
-      nrow(out) > 0
-      
-    },
-    
+
+
     
     #---- Algemene niet DB methodes -----
     make_choices = function(values_from, names_from = values_from, data = NULL){
@@ -110,36 +115,6 @@ LinkItEngine <- R6::R6Class(
     
     
     #------- LinkIt methodes -----
-    
-    add_user = function(userid, role = 1, username){
-      
-      self$append_data("gebruikers", 
-                       tibble(
-                         userid = as.character(userid),
-                         userrole = as.integer(role),
-                         username = as.character(username),
-                         lastlogin = Sys.time(),
-                         meta = ""
-                       ))
-      
-    },
-    
-    username_from_userid = function(userid){
-      
-      users <- self$read_table("gebruikers", lazy = TRUE) %>%
-        filter(userid %in% !!userid) %>%
-        collect
-      
-      ii <- match(userid, users$userid)
-      if(length(ii) == 0 || all(is.na(ii))){
-        userid
-      } else {
-        users$username[ii]  
-      }
-      
-      
-    },
-    
 
     get_favorites = function(userid, lazy = FALSE){
       
@@ -220,21 +195,6 @@ LinkItEngine <- R6::R6Class(
       
     },
     
-    
-    laatste_login = function(userid){
-      
-      last <- self$query(glue("SELECT lastlogin FROM linkit.gebruikers WHERE userid = '{userid}'"))$lastlogin
-      
-      if(length(last) == 0){
-        return(format(Sys.Date()))
-      }
-      
-      if(last != as.character((Sys.Date()))){
-        self$execute_query(glue("UPDATE linkit.gebruikers SET lastlogin = '{as.character(Sys.Date())}' WHERE userid = '{userid}'"))
-      }
-      
-      return(last)
-    },
     
     next_dossier_id = function(){
       
