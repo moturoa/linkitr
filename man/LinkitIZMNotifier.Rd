@@ -9,105 +9,120 @@ Implementation of a notification system between IZM and LinkIt
 Implementation of a notification system between IZM and LinkIt
 }
 \section{Super class}{
-\code{\link[linkitr:NA]{linkitr::NA}}
+\code{linkitr::NA}
 }
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{LinkitIZMNotifier$new()}}
-\item \href{#method-get_notificaties}{\code{LinkitIZMNotifier$get_notificaties()}}
-\item \href{#method-remove_notificatie}{\code{LinkitIZMNotifier$remove_notificatie()}}
-\item \href{#method-person_is_in_linkit_dossier}{\code{LinkitIZMNotifier$person_is_in_linkit_dossier()}}
-\item \href{#method-person_has_recent_notificatie}{\code{LinkitIZMNotifier$person_has_recent_notificatie()}}
-\item \href{#method-append_notificatie}{\code{LinkitIZMNotifier$append_notificatie()}}
-\item \href{#method-clone}{\code{LinkitIZMNotifier$clone()}}
+\item \href{#method-NA-new}{\code{LinkitIZMNotifier$new()}}
+\item \href{#method-NA-get_notificaties}{\code{LinkitIZMNotifier$get_notificaties()}}
+\item \href{#method-NA-remove_notificatie}{\code{LinkitIZMNotifier$remove_notificatie()}}
+\item \href{#method-NA-person_is_in_linkit_dossier}{\code{LinkitIZMNotifier$person_is_in_linkit_dossier()}}
+\item \href{#method-NA-person_has_recent_notificatie}{\code{LinkitIZMNotifier$person_has_recent_notificatie()}}
+\item \href{#method-NA-append_notificatie}{\code{LinkitIZMNotifier$append_notificatie()}}
+\item \href{#method-unknown-clone}{\code{LinkitIZMNotifier$clone()}}
 }
 }
-\if{html}{
-\out{<details ><summary>Inherited methods</summary>}
-\itemize{
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_coordinatoren">}\href{../../linkitr/html/NA.html#method-add_coordinatoren}{\code{linkitr::NA$add_coordinatoren()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_dossier">}\href{../../linkitr/html/NA.html#method-add_dossier}{\code{linkitr::NA$add_dossier()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_dossier_kenmerken">}\href{../../linkitr/html/NA.html#method-add_dossier_kenmerken}{\code{linkitr::NA$add_dossier_kenmerken()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_favorite">}\href{../../linkitr/html/NA.html#method-add_favorite}{\code{linkitr::NA$add_favorite()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_object_to_dossier">}\href{../../linkitr/html/NA.html#method-add_object_to_dossier}{\code{linkitr::NA$add_object_to_dossier()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_persoon_kenmerken">}\href{../../linkitr/html/NA.html#method-add_persoon_kenmerken}{\code{linkitr::NA$add_persoon_kenmerken()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_unknown_location">}\href{../../linkitr/html/NA.html#method-add_unknown_location}{\code{linkitr::NA$add_unknown_location()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_unknown_person">}\href{../../linkitr/html/NA.html#method-add_unknown_person}{\code{linkitr::NA$add_unknown_person()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_user">}\href{../../linkitr/html/NA.html#method-add_user}{\code{linkitr::NA$add_user()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="append_data">}\href{../../linkitr/html/NA.html#method-append_data}{\code{linkitr::NA$append_data()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="close">}\href{../../linkitr/html/NA.html#method-close}{\code{linkitr::NA$close()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="decrypt">}\href{../../linkitr/html/NA.html#method-decrypt}{\code{linkitr::NA$decrypt()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_dossier">}\href{../../linkitr/html/NA.html#method-delete_dossier}{\code{linkitr::NA$delete_dossier()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_dossier_coordinatoren">}\href{../../linkitr/html/NA.html#method-delete_dossier_coordinatoren}{\code{linkitr::NA$delete_dossier_coordinatoren()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_favorite">}\href{../../linkitr/html/NA.html#method-delete_favorite}{\code{linkitr::NA$delete_favorite()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_rows_where">}\href{../../linkitr/html/NA.html#method-delete_rows_where}{\code{linkitr::NA$delete_rows_where()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_rows_where2">}\href{../../linkitr/html/NA.html#method-delete_rows_where2}{\code{linkitr::NA$delete_rows_where2()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_unknown_location">}\href{../../linkitr/html/NA.html#method-delete_unknown_location}{\code{linkitr::NA$delete_unknown_location()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="dossier_exists">}\href{../../linkitr/html/NA.html#method-dossier_exists}{\code{linkitr::NA$dossier_exists()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="dossier_naam_from_id">}\href{../../linkitr/html/NA.html#method-dossier_naam_from_id}{\code{linkitr::NA$dossier_naam_from_id()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="edit_unknown_persoon">}\href{../../linkitr/html/NA.html#method-edit_unknown_persoon}{\code{linkitr::NA$edit_unknown_persoon()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="encrypt">}\href{../../linkitr/html/NA.html#method-encrypt}{\code{linkitr::NA$encrypt()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="execute_query">}\href{../../linkitr/html/NA.html#method-execute_query}{\code{linkitr::NA$execute_query()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="format_dossierid">}\href{../../linkitr/html/NA.html#method-format_dossierid}{\code{linkitr::NA$format_dossierid()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_all_active_dossiers">}\href{../../linkitr/html/NA.html#method-get_all_active_dossiers}{\code{linkitr::NA$get_all_active_dossiers()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_audit">}\href{../../linkitr/html/NA.html#method-get_audit}{\code{linkitr::NA$get_audit()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_con">}\href{../../linkitr/html/NA.html#method-get_con}{\code{linkitr::NA$get_con()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_coordinatoren">}\href{../../linkitr/html/NA.html#method-get_coordinatoren}{\code{linkitr::NA$get_coordinatoren()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossier">}\href{../../linkitr/html/NA.html#method-get_dossier}{\code{linkitr::NA$get_dossier()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossier_kenmerken">}\href{../../linkitr/html/NA.html#method-get_dossier_kenmerken}{\code{linkitr::NA$get_dossier_kenmerken()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossierid_coordinatoren">}\href{../../linkitr/html/NA.html#method-get_dossierid_coordinatoren}{\code{linkitr::NA$get_dossierid_coordinatoren()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossierid_dossier_kenmerken">}\href{../../linkitr/html/NA.html#method-get_dossierid_dossier_kenmerken}{\code{linkitr::NA$get_dossierid_dossier_kenmerken()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_favorites">}\href{../../linkitr/html/NA.html#method-get_favorites}{\code{linkitr::NA$get_favorites()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_my_active_dossiers">}\href{../../linkitr/html/NA.html#method-get_my_active_dossiers}{\code{linkitr::NA$get_my_active_dossiers()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_object_kenmerk">}\href{../../linkitr/html/NA.html#method-get_object_kenmerk}{\code{linkitr::NA$get_object_kenmerk()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_objects">}\href{../../linkitr/html/NA.html#method-get_objects}{\code{linkitr::NA$get_objects()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_personen_active_dossiers">}\href{../../linkitr/html/NA.html#method-get_personen_active_dossiers}{\code{linkitr::NA$get_personen_active_dossiers()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_persoon">}\href{../../linkitr/html/NA.html#method-get_persoon}{\code{linkitr::NA$get_persoon()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_unknown_location">}\href{../../linkitr/html/NA.html#method-get_unknown_location}{\code{linkitr::NA$get_unknown_location()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_verwijderde_dossiers">}\href{../../linkitr/html/NA.html#method-get_verwijderde_dossiers}{\code{linkitr::NA$get_verwijderde_dossiers()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="has_value">}\href{../../linkitr/html/NA.html#method-has_value}{\code{linkitr::NA$has_value()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="is_admin">}\href{../../linkitr/html/NA.html#method-is_admin}{\code{linkitr::NA$is_admin()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="is_favorite">}\href{../../linkitr/html/NA.html#method-is_favorite}{\code{linkitr::NA$is_favorite()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="is_object_in_dossier">}\href{../../linkitr/html/NA.html#method-is_object_in_dossier}{\code{linkitr::NA$is_object_in_dossier()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="laatste_login">}\href{../../linkitr/html/NA.html#method-laatste_login}{\code{linkitr::NA$laatste_login()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="list_tables">}\href{../../linkitr/html/NA.html#method-list_tables}{\code{linkitr::NA$list_tables()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="log_audit">}\href{../../linkitr/html/NA.html#method-log_audit}{\code{linkitr::NA$log_audit()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="make_choices">}\href{../../linkitr/html/NA.html#method-make_choices}{\code{linkitr::NA$make_choices()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="next_dossier_id">}\href{../../linkitr/html/NA.html#method-next_dossier_id}{\code{linkitr::NA$next_dossier_id()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="query">}\href{../../linkitr/html/NA.html#method-query}{\code{linkitr::NA$query()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="read_table">}\href{../../linkitr/html/NA.html#method-read_table}{\code{linkitr::NA$read_table()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="remove_object_from_dossier">}\href{../../linkitr/html/NA.html#method-remove_object_from_dossier}{\code{linkitr::NA$remove_object_from_dossier()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="replace_dossier_coordinatoren">}\href{../../linkitr/html/NA.html#method-replace_dossier_coordinatoren}{\code{linkitr::NA$replace_dossier_coordinatoren()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="replace_dossier_kenmerken">}\href{../../linkitr/html/NA.html#method-replace_dossier_kenmerken}{\code{linkitr::NA$replace_dossier_kenmerken()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="replace_value_where">}\href{../../linkitr/html/NA.html#method-replace_value_where}{\code{linkitr::NA$replace_value_where()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="set_adres_as_hoofdadres">}\href{../../linkitr/html/NA.html#method-set_adres_as_hoofdadres}{\code{linkitr::NA$set_adres_as_hoofdadres()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="set_object_kenmerk">}\href{../../linkitr/html/NA.html#method-set_object_kenmerk}{\code{linkitr::NA$set_object_kenmerk()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="set_object_relations">}\href{../../linkitr/html/NA.html#method-set_object_relations}{\code{linkitr::NA$set_object_relations()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="toggle_favorite">}\href{../../linkitr/html/NA.html#method-toggle_favorite}{\code{linkitr::NA$toggle_favorite()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="undo_verwijder_dossier">}\href{../../linkitr/html/NA.html#method-undo_verwijder_dossier}{\code{linkitr::NA$undo_verwijder_dossier()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="username_from_userid">}\href{../../linkitr/html/NA.html#method-username_from_userid}{\code{linkitr::NA$username_from_userid()}}\out{</span>}
-\item \out{<span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="verwijder_dossier">}\href{../../linkitr/html/NA.html#method-verwijder_dossier}{\code{linkitr::NA$verwijder_dossier()}}\out{</span>}
-}
-\out{</details>}
-}
+\if{html}{\out{
+<details><summary>Inherited methods</summary>
+<ul>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="append_data"><a href='../../shintodb/html/NA.html#method-NA-append_data'><code>shintodb::NA$append_data()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="close"><a href='../../shintodb/html/NA.html#method-NA-close'><code>shintodb::NA$close()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="connect_to_database"><a href='../../shintodb/html/NA.html#method-NA-connect_to_database'><code>shintodb::NA$connect_to_database()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="execute_query"><a href='../../shintodb/html/NA.html#method-NA-execute_query'><code>shintodb::NA$execute_query()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="filter"><a href='../../shintodb/html/NA.html#method-NA-filter'><code>shintodb::NA$filter()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="get_query"><a href='../../shintodb/html/NA.html#method-NA-get_query'><code>shintodb::NA$get_query()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="has_connection"><a href='../../shintodb/html/NA.html#method-NA-has_connection'><code>shintodb::NA$has_connection()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="has_value"><a href='../../shintodb/html/NA.html#method-NA-has_value'><code>shintodb::NA$has_value()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="have_column"><a href='../../shintodb/html/NA.html#method-NA-have_column'><code>shintodb::NA$have_column()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="list_indexes"><a href='../../shintodb/html/NA.html#method-NA-list_indexes'><code>shintodb::NA$list_indexes()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="list_tables"><a href='../../shintodb/html/NA.html#method-NA-list_tables'><code>shintodb::NA$list_tables()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="make_column"><a href='../../shintodb/html/NA.html#method-NA-make_column'><code>shintodb::NA$make_column()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="postgres_now"><a href='../../shintodb/html/NA.html#method-NA-postgres_now'><code>shintodb::NA$postgres_now()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="postgres_now_in_local_time"><a href='../../shintodb/html/NA.html#method-NA-postgres_now_in_local_time'><code>shintodb::NA$postgres_now_in_local_time()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="query"><a href='../../shintodb/html/NA.html#method-NA-query'><code>shintodb::NA$query()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="read_table"><a href='../../shintodb/html/NA.html#method-NA-read_table'><code>shintodb::NA$read_table()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="replace_value_where"><a href='../../shintodb/html/NA.html#method-NA-replace_value_where'><code>shintodb::NA$replace_value_where()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="replace_value_where2"><a href='../../shintodb/html/NA.html#method-NA-replace_value_where2'><code>shintodb::NA$replace_value_where2()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="table_columns"><a href='../../shintodb/html/NA.html#method-NA-table_columns'><code>shintodb::NA$table_columns()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="table_info"><a href='../../shintodb/html/NA.html#method-NA-table_info'><code>shintodb::NA$table_info()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="update_where"><a href='../../shintodb/html/NA.html#method-NA-update_where'><code>shintodb::NA$update_where()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="shintodb" data-topic="NA" data-id="write_table_overwrite"><a href='../../shintodb/html/NA.html#method-NA-write_table_overwrite'><code>shintodb::NA$write_table_overwrite()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_coordinatoren"><a href='../../linkitr/html/NA.html#method-NA-add_coordinatoren'><code>linkitr::NA$add_coordinatoren()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_dossier"><a href='../../linkitr/html/NA.html#method-NA-add_dossier'><code>linkitr::NA$add_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_dossier_kenmerken"><a href='../../linkitr/html/NA.html#method-NA-add_dossier_kenmerken'><code>linkitr::NA$add_dossier_kenmerken()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_favorite"><a href='../../linkitr/html/NA.html#method-NA-add_favorite'><code>linkitr::NA$add_favorite()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_instantie"><a href='../../linkitr/html/NA.html#method-NA-add_instantie'><code>linkitr::NA$add_instantie()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_object_to_dossier"><a href='../../linkitr/html/NA.html#method-NA-add_object_to_dossier'><code>linkitr::NA$add_object_to_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_persoon_kenmerken"><a href='../../linkitr/html/NA.html#method-NA-add_persoon_kenmerken'><code>linkitr::NA$add_persoon_kenmerken()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_unknown_location"><a href='../../linkitr/html/NA.html#method-NA-add_unknown_location'><code>linkitr::NA$add_unknown_location()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="add_unknown_person"><a href='../../linkitr/html/NA.html#method-NA-add_unknown_person'><code>linkitr::NA$add_unknown_person()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="decrypt"><a href='../../linkitr/html/NA.html#method-NA-decrypt'><code>linkitr::NA$decrypt()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_dossier"><a href='../../linkitr/html/NA.html#method-NA-delete_dossier'><code>linkitr::NA$delete_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_dossier_coordinatoren"><a href='../../linkitr/html/NA.html#method-NA-delete_dossier_coordinatoren'><code>linkitr::NA$delete_dossier_coordinatoren()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_favorite"><a href='../../linkitr/html/NA.html#method-NA-delete_favorite'><code>linkitr::NA$delete_favorite()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_rows_where"><a href='../../linkitr/html/NA.html#method-NA-delete_rows_where'><code>linkitr::NA$delete_rows_where()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_rows_where2"><a href='../../linkitr/html/NA.html#method-NA-delete_rows_where2'><code>linkitr::NA$delete_rows_where2()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="delete_unknown_location"><a href='../../linkitr/html/NA.html#method-NA-delete_unknown_location'><code>linkitr::NA$delete_unknown_location()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="dossier_exists"><a href='../../linkitr/html/NA.html#method-NA-dossier_exists'><code>linkitr::NA$dossier_exists()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="dossier_naam_from_id"><a href='../../linkitr/html/NA.html#method-NA-dossier_naam_from_id'><code>linkitr::NA$dossier_naam_from_id()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="edit_unknown_persoon"><a href='../../linkitr/html/NA.html#method-NA-edit_unknown_persoon'><code>linkitr::NA$edit_unknown_persoon()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="encrypt"><a href='../../linkitr/html/NA.html#method-NA-encrypt'><code>linkitr::NA$encrypt()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="format_dossierid"><a href='../../linkitr/html/NA.html#method-NA-format_dossierid'><code>linkitr::NA$format_dossierid()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_all_active_dossiers"><a href='../../linkitr/html/NA.html#method-NA-get_all_active_dossiers'><code>linkitr::NA$get_all_active_dossiers()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_audit"><a href='../../linkitr/html/NA.html#method-NA-get_audit'><code>linkitr::NA$get_audit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_coordinatoren"><a href='../../linkitr/html/NA.html#method-NA-get_coordinatoren'><code>linkitr::NA$get_coordinatoren()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossier"><a href='../../linkitr/html/NA.html#method-NA-get_dossier'><code>linkitr::NA$get_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossier_kenmerken"><a href='../../linkitr/html/NA.html#method-NA-get_dossier_kenmerken'><code>linkitr::NA$get_dossier_kenmerken()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossierid_coordinatoren"><a href='../../linkitr/html/NA.html#method-NA-get_dossierid_coordinatoren'><code>linkitr::NA$get_dossierid_coordinatoren()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossierid_dossier_kenmerken"><a href='../../linkitr/html/NA.html#method-NA-get_dossierid_dossier_kenmerken'><code>linkitr::NA$get_dossierid_dossier_kenmerken()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_dossierid_personen"><a href='../../linkitr/html/NA.html#method-NA-get_dossierid_personen'><code>linkitr::NA$get_dossierid_personen()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_favorites"><a href='../../linkitr/html/NA.html#method-NA-get_favorites'><code>linkitr::NA$get_favorites()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_my_active_dossiers"><a href='../../linkitr/html/NA.html#method-NA-get_my_active_dossiers'><code>linkitr::NA$get_my_active_dossiers()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_object_kenmerk"><a href='../../linkitr/html/NA.html#method-NA-get_object_kenmerk'><code>linkitr::NA$get_object_kenmerk()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_objecten_objectinstance"><a href='../../linkitr/html/NA.html#method-NA-get_objecten_objectinstance'><code>linkitr::NA$get_objecten_objectinstance()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_objects"><a href='../../linkitr/html/NA.html#method-NA-get_objects'><code>linkitr::NA$get_objects()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_personen_active_dossiers"><a href='../../linkitr/html/NA.html#method-NA-get_personen_active_dossiers'><code>linkitr::NA$get_personen_active_dossiers()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_persoon"><a href='../../linkitr/html/NA.html#method-NA-get_persoon'><code>linkitr::NA$get_persoon()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_unknown_location"><a href='../../linkitr/html/NA.html#method-NA-get_unknown_location'><code>linkitr::NA$get_unknown_location()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="get_verwijderde_dossiers"><a href='../../linkitr/html/NA.html#method-NA-get_verwijderde_dossiers'><code>linkitr::NA$get_verwijderde_dossiers()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="is_favorite"><a href='../../linkitr/html/NA.html#method-NA-is_favorite'><code>linkitr::NA$is_favorite()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="is_object_in_dossier"><a href='../../linkitr/html/NA.html#method-NA-is_object_in_dossier'><code>linkitr::NA$is_object_in_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="list_instanties"><a href='../../linkitr/html/NA.html#method-NA-list_instanties'><code>linkitr::NA$list_instanties()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="log_audit"><a href='../../linkitr/html/NA.html#method-NA-log_audit'><code>linkitr::NA$log_audit()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="make_choices"><a href='../../linkitr/html/NA.html#method-NA-make_choices'><code>linkitr::NA$make_choices()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="n_personen_dossier"><a href='../../linkitr/html/NA.html#method-NA-n_personen_dossier'><code>linkitr::NA$n_personen_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="next_dossier_id"><a href='../../linkitr/html/NA.html#method-NA-next_dossier_id'><code>linkitr::NA$next_dossier_id()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="remove_object_from_dossier"><a href='../../linkitr/html/NA.html#method-NA-remove_object_from_dossier'><code>linkitr::NA$remove_object_from_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="replace_dossier_coordinatoren"><a href='../../linkitr/html/NA.html#method-NA-replace_dossier_coordinatoren'><code>linkitr::NA$replace_dossier_coordinatoren()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="replace_dossier_kenmerken"><a href='../../linkitr/html/NA.html#method-NA-replace_dossier_kenmerken'><code>linkitr::NA$replace_dossier_kenmerken()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="save_coordinatoren_list"><a href='../../linkitr/html/NA.html#method-NA-save_coordinatoren_list'><code>linkitr::NA$save_coordinatoren_list()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="save_msal_coordinatoren_list"><a href='../../linkitr/html/NA.html#method-NA-save_msal_coordinatoren_list'><code>linkitr::NA$save_msal_coordinatoren_list()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="set_adres_as_hoofdadres"><a href='../../linkitr/html/NA.html#method-NA-set_adres_as_hoofdadres'><code>linkitr::NA$set_adres_as_hoofdadres()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="set_object_kenmerk"><a href='../../linkitr/html/NA.html#method-NA-set_object_kenmerk'><code>linkitr::NA$set_object_kenmerk()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="set_object_relations"><a href='../../linkitr/html/NA.html#method-NA-set_object_relations'><code>linkitr::NA$set_object_relations()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="store_msal_user_object"><a href='../../linkitr/html/NA.html#method-NA-store_msal_user_object'><code>linkitr::NA$store_msal_user_object()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="store_user_object"><a href='../../linkitr/html/NA.html#method-NA-store_user_object'><code>linkitr::NA$store_user_object()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="toggle_favorite"><a href='../../linkitr/html/NA.html#method-NA-toggle_favorite'><code>linkitr::NA$toggle_favorite()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="undo_verwijder_dossier"><a href='../../linkitr/html/NA.html#method-NA-undo_verwijder_dossier'><code>linkitr::NA$undo_verwijder_dossier()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="username_from_msal_userid"><a href='../../linkitr/html/NA.html#method-NA-username_from_msal_userid'><code>linkitr::NA$username_from_msal_userid()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="username_from_userid"><a href='../../linkitr/html/NA.html#method-NA-username_from_userid'><code>linkitr::NA$username_from_userid()</code></a></span></li>
+<li><span class="pkg-link" data-pkg="linkitr" data-topic="NA" data-id="verwijder_dossier"><a href='../../linkitr/html/NA.html#method-NA-verwijder_dossier'><code>linkitr::NA$verwijder_dossier()</code></a></span></li>
+</ul>
+</details>
+}}
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
+\if{html}{\out{<a id="method-NA-new"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-new}{}}}
 \subsection{Method \code{new()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$new(
-  config_name,
-  schema,
-  pool,
-  config_file = "conf/config.yml"
-)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$new(what, schema, pool, config_file = "conf/config.yml")}\if{html}{\out{</div>}}
 }
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-get_notificaties"></a>}}
-\if{latex}{\out{\hypertarget{method-get_notificaties}{}}}
+\if{html}{\out{<a id="method-NA-get_notificaties"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-get_notificaties}{}}}
 \subsection{Method \code{get_notificaties()}}{
 Retrieve IZM notifications for all dossiers of which the 
 current user is the coordinator, and the dossier is active,
@@ -125,8 +140,8 @@ and the notification has not been removed yet.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-remove_notificatie"></a>}}
-\if{latex}{\out{\hypertarget{method-remove_notificatie}{}}}
+\if{html}{\out{<a id="method-NA-remove_notificatie"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-remove_notificatie}{}}}
 \subsection{Method \code{remove_notificatie()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$remove_notificatie(id)}\if{html}{\out{</div>}}
@@ -141,8 +156,8 @@ and the notification has not been removed yet.
 }
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-person_is_in_linkit_dossier"></a>}}
-\if{latex}{\out{\hypertarget{method-person_is_in_linkit_dossier}{}}}
+\if{html}{\out{<a id="method-NA-person_is_in_linkit_dossier"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-person_is_in_linkit_dossier}{}}}
 \subsection{Method \code{person_is_in_linkit_dossier()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$person_is_in_linkit_dossier(pseudo_bsn)}\if{html}{\out{</div>}}
@@ -150,8 +165,8 @@ and the notification has not been removed yet.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-person_has_recent_notificatie"></a>}}
-\if{latex}{\out{\hypertarget{method-person_has_recent_notificatie}{}}}
+\if{html}{\out{<a id="method-NA-person_has_recent_notificatie"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-person_has_recent_notificatie}{}}}
 \subsection{Method \code{person_has_recent_notificatie()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$person_has_recent_notificatie(pseudo_bsn, recent_days = 30)}\if{html}{\out{</div>}}
@@ -159,8 +174,8 @@ and the notification has not been removed yet.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-append_notificatie"></a>}}
-\if{latex}{\out{\hypertarget{method-append_notificatie}{}}}
+\if{html}{\out{<a id="method-NA-append_notificatie"></a>}}
+\if{latex}{\out{\hypertarget{method-NA-append_notificatie}{}}}
 \subsection{Method \code{append_notificatie()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{LinkitIZMNotifier$append_notificatie(pseudo_bsn, userid)}\if{html}{\out{</div>}}
@@ -168,8 +183,8 @@ and the notification has not been removed yet.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-clone"></a>}}
-\if{latex}{\out{\hypertarget{method-clone}{}}}
+\if{html}{\out{<a id="method-unknown-clone"></a>}}
+\if{latex}{\out{\hypertarget{method-unknown-clone}{}}}
 \subsection{Method \code{clone()}}{
 The objects of this class are cloneable with this method.
 \subsection{Usage}{

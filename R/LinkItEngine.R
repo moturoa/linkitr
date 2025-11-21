@@ -45,7 +45,6 @@ LinkItEngine <- R6::R6Class(
     
     #----- User methods (via shintousers) ---
     store_user_object = function(.user){
-      
       stopifnot(inherits(.user, "ShintoUsers"))
       
       self$.user <- .user
@@ -53,7 +52,6 @@ LinkItEngine <- R6::R6Class(
     },
     
     save_coordinatoren_list = function(){
-      
       self$gebruikers <- self$.user$list_application_users(ignore_groups = "ontwikkelaar")
       
       self$sel$coordinatoren <- self$make_choices(values_from = "userid",
@@ -63,9 +61,30 @@ LinkItEngine <- R6::R6Class(
     },
     
     username_from_userid = function(userid){
-      
       self$.user$get_name(userid)
       
+    },
+    
+    #----- User MSAL methods (via shintousers) ---
+    store_msal_user_object = function(.user){
+      stopifnot(inherits(.user, "ShintoMSALUser"))
+      
+      self$.user <- .user
+      
+    },
+    
+    save_msal_coordinatoren_list = function(appname){
+      self$gebruikers <- self$.user$list_application_users(appname = appname, ignore_groups = "ontwikkelaar")
+      
+      self$sel$coordinatoren <- self$make_choices(values_from = "userid",
+                                                  names_from = "username",
+                                                  data = self$gebruikers)
+      
+    },
+    
+    username_from_msal_userid = function(userid, appname){
+      browser()
+      self$.user$get_name(userid, appname = appname)
     },
     
     
