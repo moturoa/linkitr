@@ -83,7 +83,6 @@ LinkItEngine <- R6::R6Class(
     },
     
     username_from_msal_userid = function(userid, appname){
-      browser()
       self$.user$get_name(userid, appname = appname)
     },
     
